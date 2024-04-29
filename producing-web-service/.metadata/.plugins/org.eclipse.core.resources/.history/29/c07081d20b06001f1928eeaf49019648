@@ -1,0 +1,41 @@
+package com.example.fabrick.producingwebservice.model;
+
+public class Account {
+
+	private Long accountId;
+    private String iban;
+    private String abiCode;
+    private String cabCode;
+    private String countryCode;
+    private String internationalCin;
+    private String nationalCin;
+    private String account;
+    private String alias;
+    private String productName;
+    private String holderName;
+    private String activatedDate;
+    private String currency;
+    
+	public Account(Long accountId, String iban, String abiCode, String cabCode, String countryCode,
+			String internationalCin, String nationalCin, String account, String alias, String productName,
+			String holderName, String activatedDate, String currency) {
+		super();
+		this.accountId = accountId;
+		this.iban = iban;
+		this.abiCode = abiCode;
+		this.cabCode = cabCode;
+		this.countryCode = countryCode;
+		this.internationalCin = internationalCin;
+		this.nationalCin = nationalCin;
+		this.account = account;
+		this.alias = alias;
+		this.productName = productName;
+		this.holderName = holderName;
+		this.activatedDate = activatedDate;
+		this.currency = currency;
+	}
+	
+	
+    
+    
+}

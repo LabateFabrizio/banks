@@ -1,0 +1,15 @@
+package com.example.fabrick.producingwebservice.configuration;
+
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.h2.server.web.WebServlet;
+
+@Configuration
+public class H2ConsoleConfiguration {
+
+    @Bean
+    ServletRegistrationBean<Servlet> h2ServletRegistration() {
+        ServletRegistrationBean<Servlet> registrationBean = new ServletRegistrationBean<>(new WebServlet(), "/h2-console/*");
+        registrationBean.setLoadOnStartup(1);
+        return registrationBean;
+    }
+}

@@ -1,0 +1,101 @@
+package com.example.fabrick.producingwebservice.service;
+
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+public class AccountService {
+
+    public List<Account> getAccounts() {
+        List<Account> accounts = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "")) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM gbs.accounts");
+            while (resultSet.next()) {
+                Account account = new Account();
+                account.setAccountId(resultSet.getLong("account_id"));
+                account.setIban(resultSet.getString("iban"));
+                account.setAbiCode(resultSet.getString("abi_code"));
+                account.setCabCode(resultSet.getString("cab_code"));
+                account.setCountryCode(resultSet.getString("country_code"));
+                account.setInternationalCin(resultSet.getString("international_cin"));
+                account.setNationalCin(resultSet.getString("national_cin"));
+                account.setAccount(resultSet.getString("account"));
+                account.setAlias(resultSet.getString("alias"));
+                account.setProductName(resultSet.getString("product_name"));
+                account.setHolderName(resultSet.getString("holder_name"));
+                account.setActivatedDate(LocalDate.parse(resultSet.getString("activated_date")));
+                account.setCurrency(resultSet.getString("currency"));
+                accounts.add(account);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return accounts;
+    }
+
+    public Account getAccountBalance(Long accountId) {
+        Account account = null;
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "")) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM gbs.accounts WHERE account_id = ?");
+            preparedStatement.setLong(1, accountId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                account = new Account();
+                account.setAccountId(resultSet.getLong("account_id"));
+                account.setIban(resultSet.getString("iban"));
+                account.setAbiCode(resultSet.getString("abi_code"));
+                account.setCabCode(resultSet.getString("cab_code"));
+                account.setCountryCode(resultSet.getString("country_code"));
+                account.setInternationalCin(resultSet.getString("international_cin"));
+                account.setNationalCin(resultSet.getString("national_cin"));
+                account.setAccount(resultSet.getString("account"));
+                account.setAlias(resultSet.getString("alias"));
+                account.setProductName(resultSet.getString("product_name"));
+                account.setHolderName(resultSet.getString("holder_name"));
+                account.setActivatedDate(LocalDate.parse(resultSet.getString("activated_date")));
+                account.setCurrency(resultSet.getString("currency"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return account;
+    }
+
+    public MoneyTransfer makeMoneyTransfer(Long accountId, MoneyTransfer moneyTransfer) {
+        // Implement the money transfer logic here
+        return null;
+    }
+
+    public List<Transaction> getTransactions(Long accountId) {
+        List<Transaction> transactions = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "")) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM gbs.transactions WHERE account_id = ?");
+            preparedStatement.setLong(1, accountId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Transaction transaction = new Transaction();
+                transaction.setTransactionId(resultSet.getLong("transaction_id"));
+                transaction.setAccountId(resultSet.getLong("account_id"));
+                transaction.setType(resultSet.getString("type"));
+                transaction.setAmount(resultSet.getBigDecimal("amount"));
+                transaction.setCurrency(resultSet.getString("currency"));
+                transaction.setDescription(resultSet.getString("description"));
+                transactions.add(transaction);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return transactions;
+    }
+}

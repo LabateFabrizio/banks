@@ -1,0 +1,6 @@
+package com.example.fabrick.producingwebservice.service;
+
+Service
+public class MoneyTransferService {
+
+}

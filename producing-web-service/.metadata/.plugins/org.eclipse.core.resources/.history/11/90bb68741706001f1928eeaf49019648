@@ -1,0 +1,5 @@
+package com.example.fabrick.producingwebservice.configuration;
+
+public class H2ConsoleConfiguration {
+
+}

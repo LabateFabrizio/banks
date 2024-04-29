@@ -1,0 +1,5 @@
+package com.example.fabrick.producingwebservice.controller;
+
+public class BankingController {
+
+}

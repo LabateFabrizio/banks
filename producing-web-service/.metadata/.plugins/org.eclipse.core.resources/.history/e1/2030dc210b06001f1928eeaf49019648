@@ -1,0 +1,10 @@
+package com.example.fabrick.producingwebservice.model;
+
+public class Transaction {
+
+	private Long accountId;
+    private String type;
+    private BigDecimal amount;
+    private String currency;
+    private String description;
+}

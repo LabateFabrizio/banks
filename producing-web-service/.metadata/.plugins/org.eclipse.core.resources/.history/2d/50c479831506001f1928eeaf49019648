@@ -1,0 +1,207 @@
+package com.example.fabrick.producingwebservice.model;
+
+public class MoneyTransfer {
+    private Long accountId;
+    private String status;
+    private String direction;
+    private Creditor creditor;
+    private String debtorName;
+    private String debtorAccountCode;
+    private String cro;
+    private String uri;
+    private String trn;
+    private String description;
+    private ZonedDateTime createdDatetime;
+    private ZonedDateTime accountedDatetime;
+    private LocalDate debtorValueDate;
+    private LocalDate creditorValueDate;
+    private BigDecimal amount;
+    private String feeType;
+    private Long feeAccountId;
+    private boolean hasTaxRelief;
+
+    // Getters and setters
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+    public Creditor getCreditor() {
+        return creditor;
+    }
+
+    public void setCreditor(Creditor creditor) {
+        this.creditor = creditor;
+    }
+
+    public String getDebtorName() {
+        return debtorName;
+    }
+
+    public void setDebtorName(String debtorName) {
+        this.debtorName = debtorName;
+    }
+
+    public String getDebtorAccountCode() {
+        return debtorAccountCode;
+    }
+
+    public void setDebtorAccountCode(String debtorAccountCode) {
+        this.debtorAccountCode = debtorAccountCode;
+    }
+
+    public String getCro() {
+        return cro;
+    }
+
+    public void setCro(String cro) {
+        this.cro = cro;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public String getTrn() {
+        return trn;
+    }
+
+    public void setTrn(String trn) {
+        this.trn = trn;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ZonedDateTime getCreatedDatetime() {
+        return createdDatetime;
+    }
+
+    public void setCreatedDatetime(ZonedDateTime createdDatetime) {
+        this.createdDatetime = createdDatetime;
+    }
+
+    public ZonedDateTime getAccountedDatetime() {
+        return accountedDatetime;
+    }
+
+    public void setAccountedDatetime(ZonedDateTime accountedDatetime) {
+        this.accountedDatetime = accountedDatetime;
+    }
+
+    public LocalDate getDebtorValueDate() {
+        return debtorValueDate;
+    }
+
+    public void setDebtorValueDate(LocalDate debtorValueDate) {
+        this.debtorValueDate = debtorValueDate;
+    }
+
+    public LocalDate getCreditorValueDate() {
+        return creditorValueDate;
+    }
+
+    public void setCreditorValueDate(LocalDate creditorValueDate) {
+        this.creditorValueDate = creditorValueDate;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public String getFeeType() {
+        return feeType;
+    }
+
+    public void setFeeType(String feeType) {
+        this.feeType = feeType;
+    }
+
+    public Long getFeeAccountId() {
+        return feeAccountId;
+    }
+
+    public void setFeeAccountId(Long feeAccountId) {
+        this.feeAccountId = feeAccountId;
+    }
+
+    public boolean isHasTaxRelief() {
+        return hasTaxRelief;
+    }
+
+    public void setHasTaxRelief(boolean hasTaxRelief) {
+        this.hasTaxRelief = hasTaxRelief;
+    }
+}
+
+class Creditor {
+    private String name;
+    private String accountCode;
+    private String bicCode;
+    private String address;
+
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAccountCode() {
+        return accountCode;
+    }
+
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
+    }
+
+    public String getBicCode() {
+        return bicCode;
+    }
+
+    public void setBicCode(String bicCode) {
+        this.bicCode = bicCode;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
